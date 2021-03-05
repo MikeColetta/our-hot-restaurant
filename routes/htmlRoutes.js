@@ -6,10 +6,10 @@ module.exports = (app) => {
   });
 
   app.get("/reserve", (req, res) => {
-    res.sendFile(path.join(__dirname, "..reserve.html"));
+    res.sendFile(path.join(__dirname, "../reserve.html"));
   });
 
   app.get("/reserve", (req, res) => {
-    res.sendFile(path.join(__dirname, "..index.html"));
+    res.sendFile(path.join(__dirname, "../index.html"));
   });
 };

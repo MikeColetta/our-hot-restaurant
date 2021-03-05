@@ -53,41 +53,39 @@
       </footer>
 </body>
 <script>
-    const reservationsList = $("#reservationsList")
-    const waitingList = $("#waitingList")
-    const name = $("name")
-    const email = $("email")
-    const phone = $("phone")
+        const reservationsList = $("#reservationsList")
+        const waitingList = $("#waitingList")
+        const name = $("name")
+        const email = $("email")
+        const phone = $("phone")
 
-    fetch('/api/waitlist', {
-          method: 'GET',
-          headers: {
+        fetch('/api/waitlist', {
+        method: 'GET',
+        headers: {
             'Content-Type': 'application/json',
-          },
+        },
         }).then((response) => response.json())
-          .then((data) => {
-          const totalWaitlist = '' 
-          data.forEach(guest => {
-              currentCust = `
-              <div>
-            <h3>
-                <strong>Name:</strong>${guest.customerName}
-            </h3>
-            <h3>
-                <strong>Email:</strong> ${guest.customerEmail}
-            </h3>
-            <h3>
-                <strong>Phone #:</strong> ${phoneNumber}
-            </h3>
+        .then((data) => {
+            const totalWaitlist = ''
+            data.forEach(guest => {
+                currentCust = `
+            <div>
+        <h3>
+            <strong>Name:</strong>${guest.customerName}
+        </h3>
+        <h3>
+            <strong>Email:</strong> ${guest.customerEmail}
+        </h3>
+        <h3>
+            <strong>Phone #:</strong> ${phoneNumber}
+        </h3>
         </div>
-              `
-              totalWaitlist += currentCust
-              reservationsList += 1
-          }) 
-          waitingList += totalWaitlist
-          
-
-          })
+            `
+                totalWaitlist += currentCust
+                reservationsList += 1
+            })
+            waitingList += totalWaitlist
+        })
 
 </script>
 </html>

@@ -19,4 +19,10 @@ app.use(express.json());
 const tables = [];
 const reservations = []
 
+// routes required
+require('./routes/apiRoutes')(app);
+require('./routes/htmlRoutes')(app);
+
+// listenter
+
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));

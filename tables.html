@@ -31,7 +31,7 @@
       <div class="card">
           <div class="card-header">Current Reservations</div>
           <div class="card-body" id="reservationsList">
-            <div class="well" id="tableWell-01"><h2><span class="label label-primary">1</span> | 1</h2></div>
+            <h3>0</h3>
           </div>
       </div>
       <br>
@@ -40,15 +40,7 @@
         <div class="card-header">Waiting List</div>
         <div class="card-body" id="waitingList">
         <div>
-            <h3>
-                <strong>Name:</strong><span id="name"></span>
-            </h3>
-            <h3>
-                <strong>Email:</strong> <span id="email"></span>
-            </h3>
-            <h3>
-                <strong>Phone #:</strong> <span id="phone"></span>
-            </h3>
+            
         </div>
     </div>
     </section>
@@ -61,12 +53,41 @@
       </footer>
 </body>
 <script>
-    const reservationsList = $("#reservationsList");
+    const reservationsList = $("#reservationsList")
     const waitingList = $("#waitingList")
     const name = $("name")
     const email = $("email")
     const phone = $("phone")
 
+    fetch('/api/waitlist', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }).then((response) => response.json())
+          .then((data) => {
+          const totalWaitlist = '' 
+          data.forEach(guest => {
+              currentCust = `
+              <div>
+            <h3>
+                <strong>Name:</strong>${guest.customerName}
+            </h3>
+            <h3>
+                <strong>Email:</strong> ${guest.customerEmail}
+            </h3>
+            <h3>
+                <strong>Phone #:</strong> ${phoneNumber}
+            </h3>
+        </div>
+              `
+              totalWaitlist += currentCust
+              reservationsList += 1
+          }) 
+          waitingList += totalWaitlist
+          
+
+          })
 
 </script>
 </html>

@@ -16,8 +16,8 @@ app.use(express.json());
 
 //code goes here.
 
-const tables = [];
-const reservations = []
+const tables = require('./data/tableData');
+const reservations = require('./data/waitinglistData');
 
 // routes required
 require('./routes/apiRoutes')(app);

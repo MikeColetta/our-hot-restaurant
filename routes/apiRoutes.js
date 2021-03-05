@@ -1,5 +1,5 @@
-const table = require("./data/tableData");
-const waitlist = require("./data/waitinglistData");
+const table = require("../data/tableData");
+const waitlist = require("../data/waitinglistData");
 const express = require("express");
 
 const app = express();

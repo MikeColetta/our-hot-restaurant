@@ -1,0 +1,11 @@
+header {
+        text-align: center;
+}
+button {
+  background-color: #f44336;
+  height: 60px;
+  width: 25%;
+}
+fa {
+   height: 20;
+}
